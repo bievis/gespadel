@@ -1,0 +1,21 @@
+<h1>Ficha de Jugador</h1>
+<p>
+  <b>Id:</b>
+  <%=h @player.id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @player.name %>
+</p>
+<p>
+  <b>Usuario:</b>
+  <%=h @player.user %>
+</p>
+<p>
+  <b>Password:</b>
+  **********
+</p>
+
+<%= link_to 'Editar', edit_player_path(@player) %> |
+<%= link_to 'Volver', players_path %>

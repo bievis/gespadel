@@ -1,0 +1,40 @@
+<h1>Ficha del Partido</h1>
+<p>
+  <b>Id:</b>
+  <%=h @match.id %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%=h @match.fecha.strftime("%d-%m-%Y") %>
+</p>
+
+<table>
+  <tr>
+    <th>Pareja</th>
+    <th>Set 1</th>
+    <th>Set 2</th>
+    <th>Set 3</th>
+  </tr>
+  <tr>
+    <td align="center"><%=h Player.find_all_by_id_par(@match.id_par1).collect{ |p| p.name + " " }.join(" - ") %></td>
+    <td align="center"><%=h @match.set1_par1 %></td>
+    <td align="center"><%=h @match.set2_par1 %></td>
+    <td align="center"><%=h @match.set3_par1 %></td>
+  </tr>
+  <tr>
+    <td align="center"><%=h Player.find_all_by_id_par(@match.id_par2).collect{ |p| p.name + " " }.join(" - ") %></td>
+    <td align="center"><%=h @match.set1_par2 %></td>
+    <td align="center"><%=h @match.set2_par2 %></td>
+    <td align="center"><%=h @match.set3_par2 %></td>
+  </tr>
+</table>
+
+<p>
+  <b>Observaciones:</b>
+  <%=h @match.observaciones %>
+</p>
+
+
+<%= link_to 'Editar', edit_match_path(@match) %> |
+<%= link_to 'Volver', matches_path %>

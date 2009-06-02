@@ -1,0 +1,41 @@
+<h1>Nueva Pareja</h1>
+
+<% form_for(@pair) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <table summary="Ficha de Pareja">
+    <tr>
+      <th>Jugador 1</th>
+      <th>Jugador 2</th>
+    </tr>
+    <tr>
+      <td><%= select ("pair", "id_play1", Player.find(:all).collect {|p| [ p.name, p.id ]}, {:include_blank => true, :prompt => "Selecciona Jugador 1 :"}) %>
+      </td>
+      <td><%= select ("pair", "id_play2", Player.find(:all).collect {|p| [ p.name, p.id ]}, {:include_blank => true, :prompt => "Selecciona Jugador 2 :"}) %>
+      </td>
+    </tr>
+    </table>
+  </p>
+
+  <p>
+    <table summary="Partidos">
+    <tr>
+      <th>Jugados</th>
+      <th>Ganados</th>
+      <th>Perdidos</th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :match_play %></td>
+      <td><%= f.text_field :match_win %></td>
+      <td><%= f.text_field :match_loose %></td>
+    </tr>
+    </table>
+  </p>
+    
+  <p>
+    <%= f.submit "Crear" %>
+  </p>
+<% end %>
+
+<%= link_to 'Volver', pairs_path %>

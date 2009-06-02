@@ -1,0 +1,27 @@
+<h1>Editar Ficha del Jugador</h1>
+
+<% form_for(@player) do |f| %>
+  <%= f.error_messages %>
+
+<!-- El ID no se dejara editar  
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p> 
+-->
+  <p>Nombre<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>Usuario<br />
+    <%= f.text_field :user %>
+  </p>
+  <p>Password<br />
+    <%= f.text_field :pass %>
+  </p>
+  <p>
+    <%= f.submit "Actualizar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @player %> |
+<%= link_to 'Volver', players_path %>

@@ -1,0 +1,30 @@
+<h1>Listado de Parejas</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Jugador 1</th>
+    <th>Jugador 2</th>
+    <th>Jugados</th>
+    <th>Ganados</th>
+    <th>Perdidos</th>
+  </tr>
+
+<% for pair in @pairs %>
+  <tr>
+    <td><%=h pair.id %></td>
+    <td><%=h Player.find(pair.id_play1).name %></td>
+    <td><%=h Player.find(pair.id_play2).name %></td>
+    <td><%=h pair.match_play %></td>
+    <td><%=h pair.match_win %></td>
+    <td><%=h pair.match_loose %></td>
+    <td><%= link_to 'Mostrar', pair %></td>
+    <td><%= link_to 'Editar', edit_pair_path(pair) %></td>
+    <td><%= link_to 'Borrar', pair, :confirm => '¿Estas seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva pareja', new_pair_path %> | <a href="/">Inicio</a>

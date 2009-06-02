@@ -1,0 +1,38 @@
+<h1>Editing pair</h1>
+
+<% form_for(@pair) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :id_play1 %><br />
+<!--    <%= f.text_field :id_play1 %> -->
+<!--    <%= f.options_from_collection_for_select(@player, 'id', 'name') %> -->
+    <%= f.select :id_play1, Player::NAME %>
+  </p>
+  <p>
+    <%= f.label :id_play2 %><br />
+    <%= f.text_field :id_play2 %>
+  </p>
+  <p>
+    <%= f.label :match_play %><br />
+    <%= f.text_field :match_play %>
+  </p>
+  <p>
+    <%= f.label :match_win %><br />
+    <%= f.text_field :match_win %>
+  </p>
+  <p>
+    <%= f.label :match_loose %><br />
+    <%= f.text_field :match_loose %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pair %> |
+<%= link_to 'Back', pairs_path %>
