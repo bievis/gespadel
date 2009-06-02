@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  id_play1: 1
+  id_play2: 1
+  match_play: 1
+  match_win: 1
+  match_loose: 1
+
+two:
+  id: 1
+  id_play1: 1
+  id_play2: 1
+  match_play: 1
+  match_win: 1
+  match_loose: 1
