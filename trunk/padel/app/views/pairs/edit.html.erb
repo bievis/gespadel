@@ -1,0 +1,32 @@
+<h1>Edicion de Pareja</h1>
+
+<% form_for(@pair) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <table>
+      <tr>
+        <th>Jugador 1</th>
+        <th>Jugador 2</th>
+        <th>Jugados</th>
+        <th>Ganados</th>
+        <th>Perdidos</th>
+      </tr>
+      <tr>
+        <td width="30%"><%= select ("pair", "id_play1", Player.find(:all, :order => 'name').collect {|p| [ p.name, p.id ]}, {:include_blank => false}) %>
+        </td>
+        <td width="30%"><%= select ("pair", "id_play2", Player.find(:all, :order => 'name').collect {|p| [ p.name, p.id ]}, {:include_blank => false}) %>
+        <td width="10%"><%= f.text_field :match_play %></td>
+        <td width="10%"><%= f.text_field :match_win %></td>
+        <td width="10%"><%= f.text_field :match_loose %></td>
+      </tr>
+    </table>
+  </p>
+
+  <p>
+    <%= f.submit "Actualizar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @pair %> |
+<%= link_to 'Volver', pairs_path %>

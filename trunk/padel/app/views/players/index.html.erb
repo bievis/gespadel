@@ -1,0 +1,28 @@
+<h1>Listado de Jugadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Mostrar</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for player in @players %>
+      <tr>
+        <td><%=h player.id %></td>
+        <th scope="row"><%=h player.name %></th>
+        <td><%= link_to 'Mostrar', player %></td>
+        <td><%= link_to 'Editar', edit_player_path(player) %></td>
+        <td><%= link_to 'Borrar', player, :confirm => '¿Estas seguro?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo jugador', new_player_path %> | <a href="/">Inicio</a>

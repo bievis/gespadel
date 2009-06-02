@@ -1,0 +1,34 @@
+<h1>Datos de la Pareja</h1>
+<p>
+  <b>Id:</b>
+  <%=h @pair.id %>
+</p>
+
+<p>
+  <b>Jugador 1 :</b>
+  <%=h Player.find(@pair.id_play1).name %> (Id: <%=h @pair.id_play1 %>)
+</p>
+
+<p>
+  <b>Jugador 2 :</b>
+  <%=h Player.find(@pair.id_play2).name %> (Id: <%=h @pair.id_play2 %>)
+</p>
+
+<p>
+  <b>Partidos Jugados :</b>
+  <%=h @pair.match_play %>
+</p>
+
+<p>
+  <b>Partidos Ganados :</b>
+  <%=h @pair.match_win %>
+</p>
+
+<p>
+  <b>Partidos Perdidos :</b>
+  <%=h @pair.match_loose %>
+</p>
+
+
+<%= link_to 'Editar', edit_pair_path(@pair) %> |
+<%= link_to 'Volver', pairs_path %>

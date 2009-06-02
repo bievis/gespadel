@@ -1,0 +1,46 @@
+<h1>Nuevo Partido</h1>
+
+<% form_for(@match) do |f| %>
+  <%= f.error_messages %>
+
+  <p>Fecha del Partido <br />
+    <td> <%= f.date_select :fecha %> </td>
+  </p>
+  <p>Pareja 1 <br />
+    <td><%= select("match", "id_par1", 
+                      Pair.find(:all).collect {|x| [ Player.find_all_by_id_par(x.id).collect{ |p| p.name + " " }.join(" - "), x.id ]},
+                      {:include_blank => true, :prompt => "Selecciona Pareja 1 :"}) %>
+    </td>
+  </p>
+  <p>Pareja 2 <br />
+    <td><%= select("match", "id_par2", 
+                      Pair.find(:all).collect {|x| [ Player.find_all_by_id_par(x.id).collect{ |p| p.name + " " }.join(" - "), x.id ]},
+                      {:include_blank => true, :prompt => "Selecciona Pareja 2 :"}) %>
+    </td>
+  </p>
+  <p>
+    <table>
+        <th align="center"> Set 1 </th>
+        <th align="center"> Set 2 </th>
+        <th align="center"> Set 3 </th>
+      <tr align="center">
+        <td> <%= f.select :set1_par1, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+        <td> <%= f.select :set2_par1, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+        <td> <%= f.select :set3_par1, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+      </tr>
+      <tr align="center">
+        <td> <%= f.select :set1_par2, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+        <td> <%= f.select :set2_par2, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+        <td> <%= f.select :set3_par2, (0..12).to_a.map { |m| ["#{m}", m] }, :include_blank => true %> </td>
+      </tr>
+    </table>
+  </p>
+  <p>Observaciones<br />
+    <%= f.text_area :observaciones %>
+  </p>
+  <p>
+    <%= f.submit "Crear" %>
+  </p>
+<% end %>
+
+<%= link_to 'Volver', matches_path %>
